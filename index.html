@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JanSeva – Unified Citizen Services Portal | Government of India</title>
+    <meta name="description"
+        content="India's unified platform for scheme eligibility, real-time application tracking, fund transparency, and public accountability." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <!-- TRICOLOR -->
+    <div class="tricolor-strip">
+        <div class="tc-saffron"></div>
+        <div class="tc-white"></div>
+        <div class="tc-green"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-logo">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">JanSeva</span>
+                    <span class="brand-sub">Government of India</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="eligibility.html" class="nav-link">Check Eligibility</a></li>
+                <li><a href="tracking.html" class="nav-link">Track Application</a></li>
+                <li><a href="transparency.html" class="nav-link">Fund Tracker</a></li>
+                <li><a href="report.html" class="nav-link">Report Issue</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-nav-login" id="loginBtn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    <span>Login with Aadhaar</span>
+                </button>
+                <button class="hamburger" id="hamburger"
+                    aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME HERO -->
+    <section class="home-hero">
+        <div class="home-hero-inner">
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <div class="hero-eyebrow-dot"></div>
+                    India Stack Powered · DPDP Compliant
+                </div>
+                <h1 class="hero-title">
+                    Every Rupee.<br />
+                    Every Citizen.<br />
+                    <em>Fully Accountable.</em>
+                </h1>
+                <p class="hero-desc">
+                    One unified platform connecting 1.4 billion citizens to ₹5 lakh crore+ in government welfare schemes
+                    — with real-time tracking, fund transparency, and zero administrative black boxes.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn-primary btn-lg" id="heroEligBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="white"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        Check My Eligibility
+                    </button>
+                    <button class="btn-outline btn-lg" id="heroTrackBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                            <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        Track Application
+                    </button>
+                </div>
+                <div class="hero-stats-row">
+                    <div class="hero-stat">
+                        <span class="hs-num">₹5L Cr+</span>
+                        <span class="hs-label">Annual Allocation</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hs-num">450+</span>
+                        <span class="hs-label">Govt. Schemes</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hs-num">22 Lang</span>
+                        <span class="hs-label">Voice Support</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual-panel">
+                <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&q=85&auto=format&fit=crop"
+                    alt="India map overview governance" class="hero-main-img" />
+                <div class="hero-overlay-card">
+                    <div class="hoc-label">Applications Resolved</div>
+                    <div class="hoc-val">94,218</div>
+                    <div class="hoc-sub">Across 28 states · FY 2025-26</div>
+                </div>
+                <div class="hero-badge-card">
+                    <span class="hbc-val">2 min</span>
+                    <span class="hbc-label">Avg. Eligibility Check</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header center">
+                <div class="section-tag">
+                    <div class="section-tag-line"></div> Platform Overview
+                </div>
+                <h2 class="section-title">What JanSeva Does</h2>
+                <p class="section-subtitle">A single platform that connects citizens, contractors, and government
+                    departments in one transparent ecosystem.</p>
+            </div>
+            <div class="features-grid">
+                <a href="eligibility.html" class="feature-card fc-blue animate-in" style="transition-delay:0.05s">
+                    <div class="feature-icon">
+                        <div class="icon-chip chip-blue">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Quick Eligibility Check</h3>
+                    <p class="feature-desc">Match yourself against 450+ Central and State schemes in under 2 minutes.
+                        DigiLocker auto-fills your profile — zero paperwork.</p>
+                    <span class="feature-link">Check Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" />
+                        </svg></span>
+                </a>
+                <a href="tracking.html" class="feature-card fc-green animate-in" style="transition-delay:0.1s">
+                    <div class="feature-icon">
+                        <div class="icon-chip chip-green">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Real-Time Application Tracking</h3>
+                    <p class="feature-desc">Every file movement is blockchain-logged. Know exactly which officer desk
+                        your application is on and the expected completion date.</p>
+                    <span class="feature-link">Track Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" />
+                        </svg></span>
+                </a>
+                <a href="transparency.html" class="feature-card fc-amber animate-in" style="transition-delay:0.15s">
+                    <div class="feature-icon">
+                        <div class="icon-chip chip-amber">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor"
+                                    stroke-width="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Ward-Level Fund Transparency</h3>
+                    <p class="feature-desc">See exactly how public funds were spent in your panchayat or ward. Geotagged
+                        proof photos from contractors — verified by citizens.</p>
+                    <span class="feature-link">View Funds <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" />
+                        </svg></span>
+                </a>
+                <a href="report.html" class="feature-card fc-red animate-in" style="transition-delay:0.2s">
+                    <div class="feature-icon">
+                        <div class="icon-chip chip-red">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor"
+                                    stroke-width="2" />
+                                <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Service Failure Reporting</h3>
+                    <p class="feature-desc">Report delayed applications or incomplete infrastructure work. Reports are
+                        cryptographically timestamped — cannot be altered or suppressed.</p>
+                    <span class="feature-link">Report Issue <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" />
+                        </svg></span>
+                </a>
+                <div class="feature-card fc-teal animate-in" style="transition-delay:0.25s">
+                    <div class="feature-icon">
+                        <div class="icon-chip chip-teal">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M19 10v2a7 7 0 01-14 0v-2" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Voice &amp; Multilingual Interface</h3>
+                    <p class="feature-desc">Full voice support in 22 Indian languages powered by Bhashini NLP.
+                        Accessible to users with limited literacy across rural India.</p>
+                    <span class="feature-link">Try Voice <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" />
+                        </svg></span>
+                </div>
+                <div class="feature-card fc-purple animate-in" style="transition-delay:0.3s">
+                    <div class="feature-icon">
+                        <div class="icon-chip" style="background:#f3f0ff;color:#7c3aed">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <ellipse cx="12" cy="5" rx="9" ry="3" stroke="currentColor" stroke-width="2" />
+                                <path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" stroke="currentColor"
+                                    stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Authentic Government Data</h3>
+                    <p class="feature-desc">All data sourced directly from official APIs — Aadhaar, DigiLocker, NPCI,
+                        and state government databases. No third-party intermediaries.</p>
+                    <span class="feature-link" style="color:#7c3aed">Learn More <svg width="14" height="14"
+                            viewBox="0 0 24 24" fill="none">
+                            <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" />
+                        </svg></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSFORMATION -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <div class="section-tag-line"></div> The Problem We Solve
+                </div>
+                <h2 class="section-title">Traditional System vs. JanSeva</h2>
+                <p class="section-subtitle">We aren't building another portal — we're building an accountability layer
+                    on top of existing infrastructure.</p>
+            </div>
+            <div style="overflow-x:auto">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="old-col">Traditional / Current Status Quo</th>
+                            <th class="new-col">JanSeva Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Discovery</td>
+                            <td class="old-col">Hunt across 450+ websites, rely on paid middlemen</td>
+                            <td class="new-col">AI scheme-matching from your DigiLocker profile in &lt;2 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>Eligibility</td>
+                            <td class="old-col">Physical documents, subjective verification, prone to corruption</td>
+                            <td class="new-col">Instant API-based verification via Aadhaar / DigiLocker</td>
+                        </tr>
+                        <tr>
+                            <td>Tracking</td>
+                            <td class="old-col">Submit & hope — no visibility on delays or stalled files</td>
+                            <td class="new-col">Blockchain-backed tracking with officer-level accountability scorecard
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Language</td>
+                            <td class="old-col">English-heavy, bureaucratic jargon, inaccessible in rural areas</td>
+                            <td class="new-col">22-language Bhashini voice bot, fully operable without literacy</td>
+                        </tr>
+                        <tr>
+                            <td>Grievances</td>
+                            <td class="old-col">Separate RTI/CPGRAMS process — exhausting, high pendency</td>
+                            <td class="new-col">Auto-escalation on SLA breach with cryptographic timestamp</td>
+                        </tr>
+                        <tr>
+                            <td>Infrastructure Funds</td>
+                            <td class="old-col">Citizens never know if ₹10L allocated for a road was actually spent</td>
+                            <td class="new-col">Street-level geotagged proof photos, social audit by local citizens</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- INDIA IMPACT VISUAL -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header center">
+                <div class="section-tag">
+                    <div class="section-tag-line"></div> Impact
+                </div>
+                <h2 class="section-title">Serving Every Corner of India</h2>
+                <p class="section-subtitle">From farmers in Telangana to daily wage workers in Bihar, JanSeva is built
+                    for real citizens.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+                <div class="card animate-in">
+                    <img src="https://images.unsplash.com/photo-1504272517842-60cc975a25f3?w=600&q=80&auto=format&fit=crop"
+                        alt="Indian farmer in agriculture field PM-Kisan beneficiary"
+                        style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:16px" />
+                    <div class="badge badge-green" style="margin-bottom:10px">
+                        <div class="badge-dot"></div> PM-Kisan Beneficiary
+                    </div>
+                    <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:6px">Ravi Kumar, Farmer</h4>
+                    <p style="font-size:0.82rem;color:var(--text-2);line-height:1.6">Found 6 eligible schemes, applied
+                        via voice in Telugu, received PM-Kisan installment in 4 days — no middleman, no bribe.</p>
+                </div>
+                <div class="card animate-in" style="transition-delay:0.1s">
+                    <img src="https://images.unsplash.com/photo-1529059997568-3d847b1154f9?w=600&q=80&auto=format&fit=crop"
+                        alt="Indian woman street vendor market"
+                        style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:16px" />
+                    <div class="badge badge-blue" style="margin-bottom:10px">
+                        <div class="badge-dot"></div> PM-SVANidhi Recipient
+                    </div>
+                    <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:6px">Meena Devi, Street Vendor</h4>
+                    <p style="font-size:0.82rem;color:var(--text-2);line-height:1.6">Tracked her ₹50,000 micro-loan
+                        application in real time. Escalated SLA breach herself when file sat idle for 8 days.</p>
+                </div>
+                <div class="card animate-in" style="transition-delay:0.2s">
+                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&q=80&auto=format&fit=crop"
+                        alt="Hyderabad city skyline ward panchayat transparency"
+                        style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:16px" />
+                    <div class="badge badge-yellow" style="margin-bottom:10px">
+                        <div class="badge-dot" style="background:var(--yellow)"></div> Panchayat Audit
+                    </div>
+                    <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:6px">Ward 12, Hyderabad</h4>
+                    <p style="font-size:0.82rem;color:var(--text-2);line-height:1.6">Citizens verified ₹48.2L road
+                        project using geotagged photos. 34 residents completed social audit, catching incomplete work.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+                <div>
+                    <div class="footer-brand-logo">
+                        <div class="footer-brand-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="white"
+                                    stroke-width="2" />
+                                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" />
+                            </svg></div>
+                        <span class="footer-name">JanSeva</span>
+                    </div>
+                    <p class="footer-desc">Bridging 1.4 billion citizens with transparent, accountable governance.
+                        Powered by India Stack APIs under DPDP Act compliance.</p>
+                    <div class="footer-compliance">
+                        <span class="compliance-badge">India Stack</span>
+                        <span class="compliance-badge">DPDP Compliant</span>
+                        <span class="compliance-badge">Bhashini NLP</span>
+                        <span class="compliance-badge">NIC Certified</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Platform</h5>
+                    <a href="eligibility.html">Eligibility Checker</a>
+                    <a href="tracking.html">Application Tracking</a>
+                    <a href="transparency.html">Fund Transparency</a>
+                    <a href="report.html">Report Failure</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Integration</h5>
+                    <a href="#">Aadhaar Authentication</a>
+                    <a href="#">DigiLocker API</a>
+                    <a href="#">NPCI / DBT</a>
+                    <a href="#">Bhashini NLP</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <a href="#">DPDP Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">RTI Information</a>
+                    <a href="#">Grievance Officer</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <p>© 2026 JanSeva. Government of India Initiative. All data sourced from authentic government databases.
+                </p>
+                <p>भारत सरकार | Government of India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VOICE FAB -->
+    <button class="voice-fab" id="voiceFab" title="Voice Assistant">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="white" stroke-width="2" />
+            <path d="M19 10v2a7 7 0 01-14 0v-2" stroke="white" stroke-width="2" stroke-linecap="round" />
+            <line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg>
+    </button>
+
+    <!-- VOICE MODAL -->
+    <div class="voice-modal-overlay" id="voiceModal" style="display:none">
+        <div class="voice-modal">
+            <button class="modal-close" id="voiceModalClose">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                </svg>
+            </button>
+            <div class="voice-rings">
+                <div class="v-ring"></div>
+                <div class="v-ring"></div>
+                <div class="v-ring"></div>
+                <div class="v-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="white" stroke-width="2" />
+                        <path d="M19 10v2a7 7 0 01-14 0v-2" stroke="white" stroke-width="2" stroke-linecap="round" />
+                        <line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg></div>
+            </div>
+            <h4>Voice Assistant</h4>
+            <p>Say: "मेरे लिए कौन सी योजनाएं हैं?" or "I am a farmer in Telangana, show my schemes"</p>
+            <div class="lang-chips">
+                <span class="lang-chip active">English</span>
+                <span class="lang-chip">हिंदी</span>
+                <span class="lang-chip">తెలుగు</span>
+                <span class="lang-chip">தமிழ்</span>
+                <span class="lang-chip">বাংলা</span>
+                <span class="lang-chip">+17 more</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('heroEligBtn').addEventListener('click', () => {
+            requireLogin(() => { window.location.href = 'eligibility.html'; });
+        });
+        document.getElementById('heroTrackBtn').addEventListener('click', () => {
+            requireLogin(() => { window.location.href = 'tracking.html'; });
+        });
+    </script>
+</body>
+
+</html>

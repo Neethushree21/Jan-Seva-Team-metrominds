@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fund Transparency – JanSeva</title>
+    <meta name="description" content="Ward-level fund allocation and utilization tracker for government projects." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="tricolor-strip">
+        <div class="tc-saffron"></div>
+        <div class="tc-white"></div>
+        <div class="tc-green"></div>
+    </div>
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></div>
+                <div class="brand-text"><span class="brand-name">JanSeva</span><span class="brand-sub">Government of
+                        India</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="eligibility.html" class="nav-link">Check Eligibility</a></li>
+                <li><a href="tracking.html" class="nav-link">Track Application</a></li>
+                <li><a href="transparency.html" class="nav-link">Fund Tracker</a></li>
+                <li><a href="report.html" class="nav-link">Report Issue</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-nav-login" id="loginBtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                    </svg><span>Login with Aadhaar</span></button>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-inner"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span>Fund
+                Tracker</span></div>
+    </div>
+
+    <div class="page-hero">
+        <div class="page-hero-inner">
+            <div class="page-hero-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                </svg> Panchayat / Ward-Level</div>
+            <h1>Local Fund Transparency</h1>
+            <p>See exactly how public money is allocated and spent in your panchayat or ward — with contractor-submitted
+                geotagged proof verified by citizens.</p>
+        </div>
+    </div>
+
+    <section class="section section-gray">
+        <div class="container">
+            <div class="fund-layout">
+                <!-- FILTER PANEL -->
+                <div class="filter-panel">
+                    <h4>Filter</h4>
+                    <div class="form-group">
+                        <label class="form-label">District</label>
+                        <div class="select-wrap"><select class="form-control" id="districtSel">
+                                <option>Hyderabad</option>
+                                <option>Mumbai Suburban</option>
+                                <option>Chennai</option>
+                                <option>Lucknow</option>
+                                <option>Patna</option>
+                            </select></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ward / Panchayat</label>
+                        <div class="select-wrap"><select class="form-control" id="wardSel">
+                                <option>Ward 12 – Banjara Hills</option>
+                                <option>Ward 08 – Kukatpally</option>
+                                <option>Panchayat – Serilingampally</option>
+                                <option>Ward 22 – Secunderabad</option>
+                            </select></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Department</label>
+                        <div class="select-wrap"><select class="form-control">
+                                <option>All Departments</option>
+                                <option>Roads & Infrastructure</option>
+                                <option>Water & Sanitation</option>
+                                <option>Electricity</option>
+                                <option>Social Welfare</option>
+                            </select></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Financial Year</label>
+                        <div class="select-wrap"><select class="form-control">
+                                <option>2025-26</option>
+                                <option>2024-25</option>
+                                <option>2023-24</option>
+                            </select></div>
+                    </div>
+                    <button class="btn-primary btn-full" id="loadFundBtn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <polyline points="1 4 1 10 7 10" stroke="white" stroke-width="2" stroke-linecap="round" />
+                            <path d="M3.51 15a9 9 0 1 0 .49-3" stroke="white" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        Refresh Data
+                    </button>
+                    <div
+                        style="margin-top:20px;padding:14px;background:var(--primary-xlight);border-radius:var(--radius-sm);border:1px solid var(--border)">
+                        <div
+                            style="font-size:0.72rem;font-weight:700;color:var(--primary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">
+                            Last Updated</div>
+                        <div style="font-size:0.82rem;font-weight:600">Feb 27, 2026 · 00:23 IST</div>
+                        <div style="font-size:0.72rem;color:var(--text-3);margin-top:3px">Live sync with State Portal
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN PANEL -->
+                <div>
+                    <!-- STAT CARDS -->
+                    <div class="fund-stats-row">
+                        <div class="fund-stat-card">
+                            <div class="fsc-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                    <line x1="12" y1="1" x2="12" y2="23" stroke="var(--primary)" stroke-width="2"
+                                        stroke-linecap="round" />
+                                    <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="var(--primary)"
+                                        stroke-width="2" stroke-linecap="round" />
+                                </svg> Total Allocated</div>
+                            <div class="fsc-value blue">₹1.24 Cr</div>
+                            <div class="fsc-sub">Ward 12 · FY 2025-26</div>
+                        </div>
+                        <div class="fund-stat-card">
+                            <div class="fsc-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="var(--green)"
+                                        stroke-width="2" stroke-linecap="round" />
+                                </svg> Utilized</div>
+                            <div class="fsc-value green">₹91.8 L</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill fill-green" style="width:0" data-width="74%"></div>
+                            </div>
+                            <div class="fsc-sub">74% of allocation used</div>
+                        </div>
+                        <div class="fund-stat-card">
+                            <div class="fsc-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="10" stroke="var(--accent)" stroke-width="2" />
+                                    <polyline points="12 6 12 12 16 14" stroke="var(--accent)" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg> Pending Release</div>
+                            <div class="fsc-value amber">₹32.2 L</div>
+                            <div class="fsc-sub">3 projects awaiting sanction</div>
+                        </div>
+                        <div class="fund-stat-card">
+                            <div class="fsc-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="var(--teal)"
+                                        stroke-width="2" stroke-linecap="round" />
+                                    <circle cx="9" cy="7" r="4" stroke="var(--teal)" stroke-width="2" />
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87" stroke="var(--teal)" stroke-width="2"
+                                        stroke-linecap="round" />
+                                    <path d="M16 3.13a4 4 0 010 7.75" stroke="var(--teal)" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg> Direct Beneficiaries</div>
+                            <div class="fsc-value" style="color:var(--teal)">2,847</div>
+                            <div class="fsc-sub">Verified DBT transfers</div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECTS TABLE -->
+                    <div class="projects-panel">
+                        <div class="panel-header">
+                            <h4>Active Projects – Ward 12, Hyderabad</h4>
+                            <span class="badge badge-blue">
+                                <div class="badge-dot"></div> Live Data
+                            </span>
+                        </div>
+
+                        <!-- Project 1 -->
+                        <div class="project-row">
+                            <div class="pr-top">
+                                <div>
+                                    <div class="pr-name">Road Resurfacing – Jubilee Hills Road (Phase 2)</div>
+                                    <div class="pr-contractor">Contractor: Sri Rama Infra Pvt. Ltd. · Tender:
+                                        TND-HYD-2025-0482</div>
+                                </div>
+                                <div class="pr-fund">
+                                    <div class="pr-amount">₹48.2 L</div>
+                                    <div class="pr-amount-label">Sanctioned Amount</div>
+                                </div>
+                            </div>
+                            <div class="pr-progress-row">
+                                <div class="progress-bar">
+                                    <div class="progress-fill fill-blue" style="width:0" data-width="62%"></div>
+                                </div>
+                                <span class="pr-pct" style="color:var(--primary)">62%</span>
+                            </div>
+                            <div class="pr-footer">
+                                <span class="badge badge-blue">
+                                    <div class="badge-dot"></div> In Progress · Est. Mar 15, 2026
+                                </span>
+                                <div class="pr-actions">
+                                    <button class="pr-action-btn" onclick="openModal('geoModal1')">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor"
+                                                stroke-width="2" />
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" />
+                                        </svg>
+                                        Geotagged Proof
+                                    </button>
+                                    <button class="pr-action-btn danger" onclick="openModal('reportModal')">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor"
+                                                stroke-width="2" />
+                                        </svg>
+                                        Report Issue
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 SLA BREACH -->
+                        <div class="project-row" style="background:#fff8f8;border-left:3px solid var(--red)">
+                            <div class="pr-top">
+                                <div>
+                                    <div class="pr-name">Street Light Installation – Sector 4, Banjara Hills</div>
+                                    <div class="pr-contractor">Contractor: Bright Solutions Co. · Tender:
+                                        TND-HYD-2025-0391</div>
+                                </div>
+                                <div class="pr-fund">
+                                    <div class="pr-amount">₹12.5 L</div>
+                                    <div class="pr-amount-label">Sanctioned Amount</div>
+                                </div>
+                            </div>
+                            <div class="pr-progress-row">
+                                <div class="progress-bar">
+                                    <div class="progress-fill fill-red" style="width:0" data-width="30%"></div>
+                                </div>
+                                <span class="pr-pct" style="color:var(--red)">30%</span>
+                            </div>
+                            <div class="pr-footer">
+                                <div class="sla-warning">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+                                            stroke="currentColor" stroke-width="2" />
+                                        <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </svg>
+                                    SLA Breach · 14 days idle · Auto-Escalated
+                                </div>
+                                <div class="pr-actions">
+                                    <button class="pr-action-btn" onclick="openModal('geoModal2')">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor"
+                                                stroke-width="2" />
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" />
+                                        </svg>
+                                        Geotagged Proof
+                                    </button>
+                                    <button class="pr-action-btn danger" onclick="openModal('reportModal')">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor"
+                                                stroke-width="2" />
+                                        </svg>
+                                        Report Issue
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 COMPLETE -->
+                        <div class="project-row">
+                            <div class="pr-top">
+                                <div>
+                                    <div class="pr-name">Drinking Water Pipeline – Phase 2</div>
+                                    <div class="pr-contractor">Contractor: AquaCivil Works · Tender: TND-HYD-2025-0284
+                                    </div>
+                                </div>
+                                <div class="pr-fund">
+                                    <div class="pr-amount">₹31.1 L</div>
+                                    <div class="pr-amount-label">Sanctioned Amount</div>
+                                </div>
+                            </div>
+                            <div class="pr-progress-row">
+                                <div class="progress-bar">
+                                    <div class="progress-fill fill-green" style="width:0" data-width="100%"></div>
+                                </div>
+                                <span class="pr-pct" style="color:var(--green)">100%</span>
+                            </div>
+                            <div class="pr-footer">
+                                <span class="badge badge-green">
+                                    <div class="badge-dot"></div> Completed · Jan 30, 2026 · Citizen Verified
+                                </span>
+                                <div class="pr-actions">
+                                    <button class="pr-action-btn" onclick="openModal('geoModal3')">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor"
+                                                stroke-width="2" />
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" />
+                                        </svg>
+                                        Geotagged Proof
+                                    </button>
+                                    <button class="pr-action-btn" onclick="openModal('auditModal')">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" />
+                                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                                            <path d="M23 21v-2a4 4 0 00-3-3.87" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" />
+                                        </svg>
+                                        Social Audit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="project-row">
+                            <div class="pr-top">
+                                <div>
+                                    <div class="pr-name">Community Hall Renovation – Banjara Hills</div>
+                                    <div class="pr-contractor">Contractor: BuildRight Constructions · Tender:
+                                        TND-HYD-2025-0510</div>
+                                </div>
+                                <div class="pr-fund">
+                                    <div class="pr-amount">₹8.8 L</div>
+                                    <div class="pr-amount-label">Sanctioned Amount</div>
+                                </div>
+                            </div>
+                            <div class="pr-progress-row">
+                                <div class="progress-bar">
+                                    <div class="progress-fill fill-blue" style="width:0" data-width="45%"></div>
+                                </div>
+                                <span class="pr-pct" style="color:var(--primary)">45%</span>
+                            </div>
+                            <div class="pr-footer">
+                                <span class="badge badge-blue">
+                                    <div class="badge-dot"></div> In Progress · Est. Apr 10, 2026
+                                </span>
+                                <div class="pr-actions">
+                                    <button class="pr-action-btn" onclick="openModal('geoModal1')">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor"
+                                                stroke-width="2" />
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" />
+                                        </svg>
+                                        Geotagged Proof
+                                    </button>
+                                    <button class="pr-action-btn danger" onclick="openModal('reportModal')">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor"
+                                                stroke-width="2" />
+                                        </svg>
+                                        Report Issue
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GEOTAGGED MODAL 1 - Road -->
+    <div class="modal-overlay" id="geoModal1" style="display:none">
+        <div class="modal-box">
+            <button class="modal-close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                </svg></button>
+            <h3 class="modal-title">Geotagged Site Photos</h3>
+            <p class="modal-subtitle">Road Resurfacing – Jubilee Hills Road · All photos GPS & timestamp verified</p>
+            <div class="geo-img-grid">
+                <div class="geo-img-card"><img
+                        src="https://images.unsplash.com/photo-1581092921461-7031d4e51f5f?w=300&q=75&auto=format&fit=crop"
+                        alt="Road construction" />
+                    <div class="geo-caption">Site Prep · Jan 15</div>
+                    <div class="geo-gps">17.4157°N, 78.4347°E</div>
+                </div>
+                <div class="geo-img-card"><img
+                        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&q=75&auto=format&fit=crop"
+                        alt="Road work" />
+                    <div class="geo-caption">30% Progress · Jan 28</div>
+                    <div class="geo-gps">17.4157°N, 78.4347°E</div>
+                </div>
+                <div class="geo-img-card"><img
+                        src="https://images.unsplash.com/photo-1535979014625-490762ceb2ff?w=300&q=75&auto=format&fit=crop"
+                        alt="Road 62%" />
+                    <div class="geo-caption">62% Progress · Feb 20</div>
+                    <div class="geo-gps">17.4158°N, 78.4348°E</div>
+                </div>
+            </div>
+            <div class="geo-meta-bar"><span>All photos verified · SHA-256 hash embedded</span><span>3 photos · Last: Feb
+                    20, 2026</span></div>
+        </div>
+    </div>
+
+    <!-- GEOTAGGED MODAL 2 - Street Light -->
+    <div class="modal-overlay" id="geoModal2" style="display:none">
+        <div class="modal-box">
+            <button class="modal-close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                </svg></button>
+            <h3 class="modal-title">Geotagged Site Photos</h3>
+            <p class="modal-subtitle">Street Light Installation – Sector 4 · SLA Breached — No new photos in 14 days</p>
+            <div class="geo-img-grid">
+                <div class="geo-img-card"><img
+                        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=75&auto=format&fit=crop"
+                        alt="Foundation" />
+                    <div class="geo-caption">Foundation · Jan 10</div>
+                    <div class="geo-gps">17.4220°N, 78.4301°E</div>
+                </div>
+                <div class="geo-img-card"><img
+                        src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=300&q=75&auto=format&fit=crop"
+                        alt="Poles" />
+                    <div class="geo-caption">Poles Delivered · Jan 18</div>
+                    <div class="geo-gps">17.4220°N, 78.4301°E</div>
+                </div>
+                <div class="geo-img-card"
+                    style="background:var(--red-light);border-color:rgba(192,57,43,0.2);justify-content:center">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="color:var(--red)">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+                            stroke="currentColor" stroke-width="2" />
+                        <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                    <div class="geo-caption" style="color:var(--red);font-weight:700">Work Stalled</div>
+                    <div class="geo-gps" style="color:var(--red)">No update in 14 days</div>
+                </div>
+            </div>
+            <div class="geo-meta-bar" style="border-color:rgba(192,57,43,0.2);background:var(--red-light)"><span
+                    style="color:var(--red)">SLA auto-escalated to District Collector</span><span>2 photos · Last: Jan
+                    18, 2026</span></div>
+        </div>
+    </div>
+
+    <!-- GEOTAGGED MODAL 3 - Water -->
+    <div class="modal-overlay" id="geoModal3" style="display:none">
+        <div class="modal-box">
+            <button class="modal-close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                </svg></button>
+            <h3 class="modal-title">Geotagged Site Photos</h3>
+            <p class="modal-subtitle">Drinking Water Pipeline Phase 2 · Completed & Citizen Verified</p>
+            <div class="geo-img-grid">
+                <div class="geo-img-card"><img
+                        src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=300&q=75&auto=format&fit=crop"
+                        alt="Pipeline start" />
+                    <div class="geo-caption">Pipe Laying · Dec 5</div>
+                    <div class="geo-gps">17.4100°N, 78.4400°E</div>
+                </div>
+                <div class="geo-img-card"><img
+                        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=75&auto=format&fit=crop"
+                        alt="Midway" />
+                    <div class="geo-caption">50% Done · Dec 20</div>
+                    <div class="geo-gps">17.4100°N, 78.4400°E</div>
+                </div>
+                <div class="geo-img-card"><img
+                        src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=300&q=75&auto=format&fit=crop"
+                        alt="Complete" />
+                    <div class="geo-caption">Completed · Jan 30</div>
+                    <div class="geo-gps">17.4101°N, 78.4400°E</div>
+                </div>
+            </div>
+            <div class="geo-meta-bar" style="background:var(--green-light);border-color:rgba(10,124,78,0.2)"><span
+                    style="color:var(--green)">Verified by 34 local citizens · Social Audit Passed</span><span>4 photos
+                    total</span></div>
+        </div>
+    </div>
+
+    <!-- SOCIAL AUDIT MODAL -->
+    <div class="modal-overlay" id="auditModal" style="display:none">
+        <div class="modal-box">
+            <button class="modal-close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                </svg></button>
+            <h3 class="modal-title">Social Audit – Water Pipeline Phase 2</h3>
+            <p class="modal-subtitle">Community verification of project quality and completion</p>
+            <div class="audit-stats">
+                <div class="as-box green">
+                    <div class="as-num">34</div>
+                    <div class="as-lbl">Verified</div>
+                </div>
+                <div class="as-box red">
+                    <div class="as-num">2</div>
+                    <div class="as-lbl">Disputes</div>
+                </div>
+                <div class="as-box">
+                    <div class="as-num" style="color:var(--primary)">94%</div>
+                    <div class="as-lbl">Satisfaction</div>
+                </div>
+            </div>
+            <div class="audit-comments">
+                <div class="audit-cmt">
+                    <div class="audit-cmt-user">Citizen · Anonymous · Ward 12 Resident</div>
+                    <div class="audit-cmt-txt">Water pressure is good. Pipeline near the main market area has been done
+                        well. Service has improved significantly.</div>
+                    <div style="display:flex;gap:2px;color:var(--accent);font-size:0.85rem">★★★★★</div>
+                </div>
+                <div class="audit-cmt">
+                    <div class="audit-cmt-user">Citizen · Anonymous · Lane 3 Resident</div>
+                    <div class="audit-cmt-txt">Work completed but the road was dug up near Lane 3 and not fully
+                        restored. The contractor should fix this before final payment.</div>
+                    <div style="display:flex;gap:2px;color:var(--accent);font-size:0.85rem">★★★☆☆</div>
+                </div>
+            </div>
+            <button class="btn-primary btn-full"
+                onclick="showToast('Your verification has been recorded. Thank you!');closeModal('auditModal')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                Add My Verification
+            </button>
+        </div>
+    </div>
+
+    <!-- REPORT MODAL -->
+    <div class="modal-overlay" id="reportModal" style="display:none">
+        <div class="modal-box">
+            <button class="modal-close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                </svg></button>
+            <h3 class="modal-title">Report Project Issue</h3>
+            <p class="modal-subtitle">Your report will be cryptographically timestamped and submitted to the district
+                grievance officer.</p>
+            <div class="form-group"><label class="form-label">Type of Issue</label>
+                <div class="select-wrap"><select class="form-control">
+                        <option>Work incomplete despite funds released</option>
+                        <option>Quality substandard</option>
+                        <option>Work not started</option>
+                        <option>SLA breach not addressed</option>
+                        <option>Contractor non-responsive</option>
+                    </select></div>
+            </div>
+            <div class="form-group"><label class="form-label">Description</label><textarea
+                    class="form-control form-textarea"
+                    placeholder="Describe what you observed at the project site…"></textarea></div>
+            <button class="btn-primary btn-full"
+                onclick="showToast('Report submitted. Reference: RPT-' + Math.floor(Math.random()*90000+10000));closeModal('reportModal')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    <path d="M22 2L15 22 11 13 2 9l20-7z" stroke="white" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                Submit Report
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+                <div>
+                    <div class="footer-brand-logo">
+                        <div class="footer-brand-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="white"
+                                    stroke-width="2" />
+                                <polyline points="9 22 9 12 15 12 15 22" stroke="white" stroke-width="2" />
+                            </svg></div><span class="footer-name">JanSeva</span>
+                    </div>
+                    <p class="footer-desc">Transparent governance for 1.4 billion citizens.</p>
+                    <div class="footer-compliance"><span class="compliance-badge">India Stack</span><span
+                            class="compliance-badge">DPDP Compliant</span></div>
+                </div>
+                <div class="footer-col">
+                    <h5>Platform</h5><a href="eligibility.html">Eligibility Checker</a><a
+                        href="tracking.html">Application Tracking</a><a href="transparency.html">Fund Transparency</a><a
+                        href="report.html">Report Failure</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Integration</h5><a href="#">Aadhaar Authentication</a><a href="#">DigiLocker API</a><a
+                        href="#">NPCI / DBT</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Legal</h5><a href="#">DPDP Privacy Policy</a><a href="#">Terms of Use</a><a href="#">RTI
+                        Information</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <p>© 2026 JanSeva. Government of India Initiative.</p>
+                <p>भारत सरकार</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="voice-fab" id="voiceFab" title="Voice Assistant"><svg width="22" height="22" viewBox="0 0 24 24"
+            fill="none">
+            <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="white" stroke-width="2" />
+            <path d="M19 10v2a7 7 0 01-14 0v-2" stroke="white" stroke-width="2" stroke-linecap="round" />
+            <line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg></button>
+    <div class="voice-modal-overlay" id="voiceModal" style="display:none">
+        <div class="voice-modal">
+            <button class="modal-close" id="voiceModalClose"><svg width="14" height="14" viewBox="0 0 24 24"
+                    fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" />
+                </svg></button>
+            <div class="voice-rings">
+                <div class="v-ring"></div>
+                <div class="v-ring"></div>
+                <div class="v-ring"></div>
+                <div class="v-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="white" stroke-width="2" />
+                        <path d="M19 10v2a7 7 0 01-14 0v-2" stroke="white" stroke-width="2" stroke-linecap="round" />
+                        <line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg></div>
+            </div>
+            <h4>Voice Assistant</h4>
+            <p>Say: "Ward 12 mein kitna paisa kharch hua?" or "Show road project status"</p>
+            <div class="lang-chips"><span class="lang-chip active">English</span><span
+                    class="lang-chip">हिंदी</span><span class="lang-chip">తెలుగు</span><span
+                    class="lang-chip">தமிழ்</span><span class="lang-chip">+18 more</span></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('loadFundBtn').addEventListener('click', () => {
+            showToast('Fund data refreshed successfully.');
+            document.querySelectorAll('.progress-fill[data-width]').forEach(el => { el.style.width = '0'; setTimeout(() => { el.style.width = el.dataset.width; }, 100); });
+        });
+    </script>
+</body>
+
+</html>
